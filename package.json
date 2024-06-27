@@ -1,0 +1,38 @@
+{
+  "name": "@triforce-heroes/triforce-nloc",
+  "description": "Transpile and rebuild NLOC files.",
+  "version": "1.0.0",
+  "license": "Apache License 2.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./Rebuilder": "./dist/Rebuilder.js",
+    "./Transpile": "./dist/Transpile.js"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc -p ./tsconfig.build.json && swc ./dist -d .",
+    "prettier": "prettier --check ./src",
+    "prettier:fix": "prettier --write ./src",
+    "eslint": "eslint ./src",
+    "eslint:fix": "eslint --fix ./src",
+    "test": "vitest",
+    "test:coverage": "vitest --coverage"
+  },
+  "dependencies": {
+    "@triforce-heroes/triforce-core": "github:triforce-heroes/triforce-core",
+    "iconv-lite": "^0.6.3"
+  },
+  "devDependencies": {
+    "@rheactor/eslint-config-rheactor": "github:rheactor/eslint-config-rheactor",
+    "@swc/cli": "^0.3.14",
+    "@swc/core": "^1.6.5",
+    "@types/node": "^20.14.9",
+    "eslint-plugin-vitest": "^0.4.1",
+    "rimraf": "^5.0.7",
+    "tsx": "^4.15.7",
+    "typescript": "^5.5.2",
+    "vitest": "^1.6.0"
+  }
+}
